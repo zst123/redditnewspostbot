@@ -1,0 +1,94 @@
+{
+    // Reddit credentials
+    "credentials": {
+        "username": "RedditNewsPostBot",
+        "password": "",
+        "client_id": "3psHFtOxrqeXEw",
+        "client_secret": ""
+    },
+
+    // PRAW configuration
+    "user_agent": "RedditNewsPostBot v0.1.0 by /u/LFlare",
+
+    // Comment configuration
+    "comment_template": "**Extracted Article:**\n{0}\n{1}\n\n===\n_^This ^bot ^was ^created ^by ^/u/LFlare, ^being ^too ^poor ^to ^afford ^ST ^subscription ^fees._\n\n_^[Feedback](https://www.reddit.com/message/compose/?to=LFlare&subject=[RedditNewsPostBot%20-%20{2}]%20)_",
+
+    // Supported sites configuration
+    "supported_sites": {
+        "www.straitstimes.com": {
+            "site": "StraitTimes",
+            "content_selector": "#block-system-main",
+            "modifications": {
+                ".a2abtn": "decompose",
+                ".author-email": "decompose",
+                ".hidden-print": "decompose",
+                ".label-inline": "unwrap",
+                ".story-postdate": "unwrap",
+                "figcaption": "decompose",
+                "script": "decompose",
+                "style": "decompose"
+            },
+            "replacements": {
+                "<a href=\"\\s+([^\"]*)\\s+\">\\s*([\\w\\s]*?)\\s*<\/a>": "[LINK: \\2](\\1)",
+                "<img.*alt=\"\\s*([^\"]*)\\s*\".*src(?:set)?=\"([^\"]*)\".*\/>": "[IMAGE: \\1](\\2)",
+                "&nbsp;": " ",
+                "(Published|Updated)\\s*([^<])": "\\1: \\2"
+            }
+        },
+        "www.todayonline.com": {
+            "site": "TodayOnline",
+            "content_selector": "div.content",
+            "modifications": {
+                "div.social-links": "decompose"
+            },
+            "replacements": {
+                "\\s?—\\s?": " — "
+            }
+        },
+        "m.todayonline.com": {
+            "site": "MobileTodayOnline",
+            "content_selector": "div.article-body",
+            "modifications": {},
+            "replacements": {
+                "\\s?—\\s?": " — "
+            }
+        },
+        "www.channelnewsasia.com": {
+            "site": "ChannelNewsAsia",
+            "content_selector": "div.bigstory.text-area",
+            "modifications": {
+                ".add-txt": "unwrap",
+                ".article-sharing-block": "decompose",
+                ".breadcrumbs-top": "decompose",
+                ".comm-img-holder": "unwrap",
+                ".tab-gallery-nav": "decompose",
+                "script": "decompose",
+                "strong": "unwrap",
+                "style": "decompose"
+            },
+            "replacements": {
+                "<img.*src(?:set)?=\"([^\"]*)\".*\/>\\s*(.*)\\s*<\/div>": "[IMAGE: \\2](http://www.channelnewsasia.com\\1)",
+                "Updated\\s*(.*)": "Updated: \\1",
+                "(Posted)\\s*": "\\1: "
+            }
+        },
+        "www.reuters.com": {
+            "site": "Reuters",
+            "content_selector": "#article-text",
+            "modifications": {},
+            "replacements": {}
+        },
+        "mothership.sg": {
+            "site": "Mothership",
+            "content_selector": "div.post-content",
+            "modifications": {
+                ".wp-caption-text": "decompose",
+                "script": "decompose"
+            },
+            "replacements": {
+                "<a href=\"([^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](\\1)",
+                "<img.*alt=\"\\s*([^\"]*)\\s*\".*src(?:set)?=\"([^\"]*)\".*\/>": "[IMAGE: \\1](\\2)"
+            }
+        }
+    }
+}
