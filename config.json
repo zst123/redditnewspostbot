@@ -15,13 +15,18 @@
                 ".author-email": "decompose",
                 ".hidden-print": "decompose",
                 ".label-inline": "unwrap",
+                ".sidebar-list": "decompose",
                 ".story-postdate": "unwrap",
+                ".ads": "decompose",
+                ".article-sidebar": "decompose",
+                ".field-name-st-native-ads-troubleshooting": "decompose",
                 "figcaption": "decompose",
                 "script": "decompose",
                 "style": "decompose"
             },
             "replacements": {
-                "<a href=\"\\s+([^\"]*)\\s+\">\\s*([\\w\\s]*?)\\s*<\/a>": "[LINK: \\2](\\1)",
+                "<a.*href=\"(\/[^\"]*)\".*>\\s*([\\w\\s]*?)\\s*<\/a>": "[LINK: \\2](http://www.straitstimes.com\\1)",
+                "<a.*href=\"([^\"]*)\".*>\\s*([\\w\\s]*?)\\s*<\/a>": "[LINK: \\2](\\1)",
                 "<img.*alt=\"\\s*([^\"]*)\\s*\".*src(?:set)?=\"([^\"]*)\".*\/>": "[IMAGE: \\1](\\2)",
                 "(Published|Updated)\\s*([^<])": "\\1: \\2"
             }
