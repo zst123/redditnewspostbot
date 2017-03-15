@@ -81,6 +81,18 @@
                 "<img.*alt=\"\\s*([^\"]*)\\s*\".*src(?:set)?=\"([^\"]*)\".*\/>": "[IMAGE: \\1](\\2)"
             }
         },
+        "news.asiaone.com": {
+            "site": "AsiaOne",
+            "content_selector": "div.article-content",
+            "modifications": {
+                "script": "decompose"
+            },
+            "replacements": {
+                "<a href=\"(\/[^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](http://news.asiaone.com\\1)",
+                "<a href=\"([^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](\\1)",
+                "\\s*(\\[.*\\](.*))\\s*": " \\1 "
+            }
+        },
         "<SITE URL>": {
             "site": "<SITE NAME>",
             "content_selector": "<SITE SELECTOR>",
