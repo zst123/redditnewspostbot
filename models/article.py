@@ -83,8 +83,8 @@ class Article():
         return text
 
     def replace_global(self, text):
-        # Remove all latin non-breaking spaces
-        text = re.sub(r"\xa0", "", text)
+        # Remove all latin non-breaking spaces and replace with normal spaces
+        text = re.sub(r"\xa0", " ", text)
         # Remove all empty newlines with white spaces
         text = "\n".join([line.strip() for line in text.split("\n")])
         # Convert newlines to double newlines
