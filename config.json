@@ -81,6 +81,16 @@
                 "<a href=\"([^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](\\1)",
                 "<img.*alt=\"\\s*([^\"]*)\\s*\".*src(?:set)?=\"([^\"]*)\".*\/>": "[IMAGE: \\1](\\2)"
             }
+        },
+        "<SITE URL>": {
+            "site": "<SITE NAME>",
+            "content_selector": "<SITE SELECTOR>",
+            "modifications": {
+                "<SELECTOR>": "<ACTION>"
+            },
+            "replacements": {
+                "<FIND>": "<REPLACE>"
+            }
         }
     }
 }
