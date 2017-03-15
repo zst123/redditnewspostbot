@@ -14,11 +14,16 @@ from models.exceptions import *
 class Configuration():
     configuration = None
 
-    def __init__(self, configuration_file="config.json"):
+    def __init__(self, configuration_file="config.json",
+                 credentials_file="credentials.json"):
         try:
             configuration = open(configuration_file, "r").read()
             parsed_configuration = re.sub(r"// .*\n", r"\n", configuration)
             self.configuration = json.loads(parsed_configuration)
+
+            credentials = open(credentials_file, "r").read()
+            parsed_credentials = re.sub(r"// .*\n", r"\n", credentials)
+            self.configuration["credentials"] = json.loads(parsed_credentials)
         except:
             raise ConfigurationException(
                 "Configuration invalid, please check json syntax!")

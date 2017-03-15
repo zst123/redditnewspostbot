@@ -1,12 +1,4 @@
 {
-    // Reddit credentials
-    "credentials": {
-        "username": "RedditNewsPostBot",
-        "password": "",
-        "client_id": "3psHFtOxrqeXEw",
-        "client_secret": ""
-    },
-
     // PRAW configuration
     "user_agent": "RedditNewsPostBot v0.1.0 by /u/LFlare",
 
