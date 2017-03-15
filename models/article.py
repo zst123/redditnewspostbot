@@ -19,6 +19,7 @@ from models.configuration import Configuration
 
 class Article():
     article_text = ""
+    article_html = ""
     debug = False
 
     def __init__(self, url, configuration=Configuration(), debug=False):
@@ -57,6 +58,7 @@ class Article():
         # Replace local regex
         article_html = self.replace_local(
             article_html, settings["replacements"])
+        self.article_html = article_html
 
         # Replace global regex
         article_text = BeautifulSoup(article_html, "html.parser").text
@@ -96,8 +98,14 @@ class Article():
     def get_article_text(self):
         return self.article_text
 
+    def get_article_html(self):
+        return self.article_html
+
 if __name__ == "__main__":
     if len(sys.argv) >= 1:
         for url in sys.argv:
-            article_text = Article(url).get_article_text()
+            article = Article(url)
+            article_html = article.get_article_html()
+            article_text = article.get_article_text()
+            print(article_html)
             print(article_text)
