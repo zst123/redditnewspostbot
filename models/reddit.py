@@ -77,13 +77,17 @@ class Reddit():
                             sleep_time -= 1
 
     def stream_subreddit(self, subreddit, submission_queue, supported_sites):
-        stream = self.reddit.subreddit(subreddit).stream.submissions()
-        for submission in stream:
-            if any(site in submission.url for site in supported_sites):
-                if not self.is_commented(submission):
-                    print("Queueing [%s](%s)" %
+        try:
+            stream = self.reddit.subreddit(subreddit).stream.submissions()
+            for submission in stream:
+                if any(site in submission.url for site in supported_sites):
+                    if not self.is_commented(submission):
+                        print("Queueing [%s](%s)" %
+                              (submission.id, submission.url))
+                        submission_queue.put(submission)
+                    else:
+                        print("Skipping [%s](%s)" %
                           (submission.id, submission.url))
-                    submission_queue.put(submission)
-                else:
-                    print("Skipping [%s](%s)" %
-                          (submission.id, submission.url))
+        except Exception as e:
+            print("EXCEPTION RAISED: %s" % exception.__class__.__name__)
+            time.sleep(60) # Wait 1 minute for exception
