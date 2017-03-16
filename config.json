@@ -7,6 +7,73 @@
 
     // Supported sites configuration
     "supported_sites": {
+        "<SITE URL>": {
+            "site": "<SITE NAME>",
+            "content_selector": "<SITE SELECTOR>",
+            "modifications": {
+                "<SELECTOR>": "<ACTION>"
+            },
+            "replacements": {
+                "<FIND>": "<REPLACE>"
+            }
+        },
+        "m.todayonline.com": {
+            "site": "MobileTodayOnline",
+            "content_selector": "div.article-body",
+            "modifications": {},
+            "replacements": {
+                "\\s?—\\s?": " — "
+            }
+        },
+        "mothership.sg": {
+            "site": "Mothership",
+            "content_selector": "div.post-content",
+            "modifications": {
+                ".wp-caption-text": "decompose",
+                "script": "decompose"
+            },
+            "replacements": {
+                "<a href=\"([^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](\\1)",
+                "<img.*alt=\"\\s*([^\"]*)\\s*\".*src(?:set)?=\"([^\"]*)\".*\/>": "[IMAGE: \\1](\\2)"
+            }
+        },
+        "news.asiaone.com": {
+            "site": "AsiaOne",
+            "content_selector": "div.article-content",
+            "modifications": {
+                "script": "decompose"
+            },
+            "replacements": {
+                "<a href=\"(\/[^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](http://news.asiaone.com\\1)",
+                "<a href=\"([^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](\\1)",
+                "\\s*(\\[.*\\](.*))\\s*": " \\1 "
+            }
+        },
+        "www.channelnewsasia.com": {
+            "site": "ChannelNewsAsia",
+            "content_selector": "div.bigstory.text-area",
+            "modifications": {
+                ".add-txt": "unwrap",
+                ".article-sharing-block": "decompose",
+                ".breadcrumbs-top": "decompose",
+                ".comm-img-holder": "unwrap",
+                ".tab-gallery-nav": "decompose",
+                "script": "decompose",
+                "strong": "unwrap",
+                "style": "decompose"
+            },
+            "replacements": {
+                "<img.*src(?:set)?=\"([^\"]*)\".*\/>\\s*(.*)\\s*<\/div>": "[IMAGE: \\2](http://www.channelnewsasia.com\\1)",
+                "Updated\\s*(.*)": "Updated: \\1",
+                "(Posted)\\s*": "\\1: "
+            }
+        },
+        "www.reuters.com": {
+            "site": "Reuters",
+            "content_selector": "#article-text",
+            "modifications": {},
+            "replacements": {}
+        },
         "www.straitstimes.com": {
             "site": "StraitTimes",
             "content_selector": "#block-system-main",
@@ -39,73 +106,6 @@
             },
             "replacements": {
                 "\\s?—\\s?": " — "
-            }
-        },
-        "m.todayonline.com": {
-            "site": "MobileTodayOnline",
-            "content_selector": "div.article-body",
-            "modifications": {},
-            "replacements": {
-                "\\s?—\\s?": " — "
-            }
-        },
-        "www.channelnewsasia.com": {
-            "site": "ChannelNewsAsia",
-            "content_selector": "div.bigstory.text-area",
-            "modifications": {
-                ".add-txt": "unwrap",
-                ".article-sharing-block": "decompose",
-                ".breadcrumbs-top": "decompose",
-                ".comm-img-holder": "unwrap",
-                ".tab-gallery-nav": "decompose",
-                "script": "decompose",
-                "strong": "unwrap",
-                "style": "decompose"
-            },
-            "replacements": {
-                "<img.*src(?:set)?=\"([^\"]*)\".*\/>\\s*(.*)\\s*<\/div>": "[IMAGE: \\2](http://www.channelnewsasia.com\\1)",
-                "Updated\\s*(.*)": "Updated: \\1",
-                "(Posted)\\s*": "\\1: "
-            }
-        },
-        "www.reuters.com": {
-            "site": "Reuters",
-            "content_selector": "#article-text",
-            "modifications": {},
-            "replacements": {}
-        },
-        "mothership.sg": {
-            "site": "Mothership",
-            "content_selector": "div.post-content",
-            "modifications": {
-                ".wp-caption-text": "decompose",
-                "script": "decompose"
-            },
-            "replacements": {
-                "<a href=\"([^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](\\1)",
-                "<img.*alt=\"\\s*([^\"]*)\\s*\".*src(?:set)?=\"([^\"]*)\".*\/>": "[IMAGE: \\1](\\2)"
-            }
-        },
-        "news.asiaone.com": {
-            "site": "AsiaOne",
-            "content_selector": "div.article-content",
-            "modifications": {
-                "script": "decompose"
-            },
-            "replacements": {
-                "<a href=\"(\/[^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](http://news.asiaone.com\\1)",
-                "<a href=\"([^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](\\1)",
-                "\\s*(\\[.*\\](.*))\\s*": " \\1 "
-            }
-        },
-        "<SITE URL>": {
-            "site": "<SITE NAME>",
-            "content_selector": "<SITE SELECTOR>",
-            "modifications": {
-                "<SELECTOR>": "<ACTION>"
-            },
-            "replacements": {
-                "<FIND>": "<REPLACE>"
             }
         }
     }
