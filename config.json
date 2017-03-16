@@ -7,16 +7,6 @@
 
     // Supported sites configuration
     "supported_sites": {
-        "<SITE URL>": {
-            "site": "<SITE NAME>",
-            "content_selector": "<SITE SELECTOR>",
-            "modifications": {
-                "<SELECTOR>": "<ACTION>"
-            },
-            "replacements": {
-                "<FIND>": "<REPLACE>"
-            }
-        },
         "m.todayonline.com": {
             "site": "MobileTodayOnline",
             "content_selector": "div.article-body",
@@ -106,6 +96,16 @@
             },
             "replacements": {
                 "\\s?—\\s?": " — "
+            }
+        },
+        "<SITE URL>": {
+            "site": "<SITE NAME>",
+            "content_selector": "<SITE SELECTOR>",
+            "modifications": {
+                "<SELECTOR>": "<ACTION>"
+            },
+            "replacements": {
+                "<FIND>": "<REPLACE>"
             }
         }
     }
