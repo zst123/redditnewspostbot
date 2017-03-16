@@ -52,6 +52,7 @@ class Article():
         if article_soup is None:
             return
 
+        # Modify specified selectors
         article_html = self.modify_selectors(
             article_soup, settings["modifications"]).prettify()
 
