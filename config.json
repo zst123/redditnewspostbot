@@ -58,6 +58,17 @@
                 "(Posted)\\s*": "\\1: "
             }
         },
+        "www.nytimes.com": {
+            "site": "The New York Times",
+            "content_selector": "#story",
+            "modifications": {
+                ".hidden": "decompose",
+                ".newsletter-signup": "decompose",
+                ".visually-hidden": "decompose",
+                "h3.kicker": "decompose"
+            },
+            "replacements": {}
+        },
         "www.reuters.com": {
             "site": "Reuters",
             "content_selector": "#article-text",
