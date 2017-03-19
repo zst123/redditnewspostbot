@@ -9,6 +9,7 @@ import requests
 import sys
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
+from urllib.parse import urlparse
 
 # Import exceptions
 from models.exceptions import *
@@ -20,6 +21,7 @@ from models.configuration import Configuration
 class Article():
     article_text = ""
     article_html = ""
+    domain = ""
     debug = False
 
     def __init__(self, url, configuration=Configuration(), debug=False):
@@ -45,6 +47,10 @@ class Article():
         else:
             print("Retrieved [%s](%s) Length: %d" %
                   (settings["site"], url, len(page.text)))
+
+        # Get domain name
+        parsed_uri = urlparse(url)
+        self.domain = '{uri.scheme}://{uri.netloc}'.format(uri=parsed_uri)
 
         # Process article
         page_soup = BeautifulSoup(page.text, "html.parser")
