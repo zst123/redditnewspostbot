@@ -15,6 +15,12 @@
                 "\\s?—\\s?": " — "
             }
         },
+        "medium.com": {
+            "site": "Medium",
+            "content_selector": "div.postArticle-content",
+            "modifications": {},
+            "replacements": {}
+        },
         "mothership.sg": {
             "site": "Mothership",
             "content_selector": "div.post-content",
