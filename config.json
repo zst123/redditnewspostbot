@@ -22,10 +22,7 @@
                 ".wp-caption-text": "decompose",
                 "script": "decompose"
             },
-            "replacements": {
-                "<a href=\"([^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](\\1)",
-                "<img.*alt=\"\\s*([^\"]*)\\s*\".*src(?:set)?=\"([^\"]*)\".*\/>": "[IMAGE: \\1](\\2)"
-            }
+            "replacements": {}
         },
         "news.asiaone.com": {
             "site": "AsiaOne",
@@ -34,8 +31,6 @@
                 "script": "decompose"
             },
             "replacements": {
-                "<a href=\"(\/[^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](http://news.asiaone.com\\1)",
-                "<a href=\"([^\"]*)\".*?>\\s*(.*)\\s*<\/a>": "[LINK: \\2](\\1)",
                 "\\s*(\\[.*\\](.*))\\s*": " \\1 "
             }
         },
@@ -53,7 +48,6 @@
                 "style": "decompose"
             },
             "replacements": {
-                "<img.*src(?:set)?=\"([^\"]*)\".*\/>\\s*(.*)\\s*<\/div>": "[IMAGE: \\2](http://www.channelnewsasia.com\\1)",
                 "Updated\\s*(.*)": "Updated: \\1",
                 "(Posted)\\s*": "\\1: "
             }
@@ -82,9 +76,6 @@
                 "style": "decompose"
             },
             "replacements": {
-                "<a.*href=\"(\/[^\"]*)\".*>\\s*([\\w\\s]*?)\\s*<\/a>": "[LINK: \\2](http://www.straitstimes.com\\1)",
-                "<a.*href=\"([^\"]*)\".*>\\s*([\\w\\s]*?)\\s*<\/a>": "[LINK: \\2](\\1)",
-                "<img.*alt=\"\\s*([^\"]*)\\s*\".*src(?:set)?=\"([^\"]*)\".*\/>": "[IMAGE: \\1](\\2)",
                 "(Published|Updated)\\s*([^<])": "\\1: \\2"
             }
         },
