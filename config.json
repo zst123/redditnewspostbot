@@ -104,7 +104,8 @@
                 ".byline-block": "decompose",
                 ".group-aside": "decompose",
                 ".post-actions": "decompose",
-                ".story--keyword": "decompose"
+                ".story--keyword": "decompose",
+                ".story--web-category": "decompose"
             },
             "replacements": {}
         },
