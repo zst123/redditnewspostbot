@@ -20,10 +20,11 @@ from models.configuration import Configuration
 
 
 class Article():
-    article_text = ""
     article_html = ""
-    domain = ""
+    article_text = ""
     debug = False
+    domain = ""
+    url = ""
 
     def __init__(self, url, configuration=Configuration(), debug=False):
         # Set debugging settings
@@ -53,11 +54,17 @@ class Article():
         parsed_uri = urlparse(url)
         self.domain = '{uri.scheme}://{uri.netloc}'.format(uri=parsed_uri)
 
+        # Save url
+        self.url = url
+
         # Process article
         page_soup = BeautifulSoup(page.text, "html.parser")
         article_soup = page_soup.select_one(settings["content_selector"])
         if article_soup is None:
             return
+
+        # Convert all URLs to static global URLs
+        article_soup = self.replace_url(article_soup)
 
         # Modify specified selectors
         article_html = self.modify_selectors(
@@ -79,6 +86,22 @@ class Article():
 
         if debug:
             print(article_html)
+
+    def replace_url(self, soup):
+        for url in soup.select_all("a"):
+            try:
+                a_href = a["href"]
+                if a_href.startswith("/"):
+                    a_href = self.domain + a_href
+                elif a_href.startswith("#"):
+                    a_href = self.url + a_href
+                elif not (a_href.startswith("http")
+                          or a_href.startswith("ftp")):
+                    a_href = self.domain + "/" + a_href
+                a["href"] = a_href
+            except:
+                pass
+        return soup
 
     def modify_selectors(self, soup, modifications):
         for selector, action in modifications.items():
