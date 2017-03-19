@@ -101,7 +101,7 @@ class RedditNewsPostBot:
                     print("Empty [%s](%s)" % (submission.id, submission.url))
 
             print("Sleeping for 5 seconds...")
-            time.sleep(5000)
+            time.sleep(5)
 
 if __name__ == "__main__":
     redditnewspostbot = RedditNewsPostBot()
