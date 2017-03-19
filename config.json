@@ -96,6 +96,18 @@
                 "(Published|Updated)\\s*([^<])": "\\1: \\2"
             }
         },
+        "www.tnp.sg": {
+            "site": "The New Paper",
+            "content_selector": "article",
+            "modifications": {
+                ".big-link-block": "decompose",
+                ".byline-block": "decompose",
+                ".group-aside": "decompose",
+                ".post-actions": "decompose",
+                ".story--keyword": "decompose"
+            },
+            "replacements": {}
+        },
         "www.todayonline.com": {
             "site": "TodayOnline",
             "content_selector": "div.content",
