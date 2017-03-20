@@ -88,7 +88,7 @@ class Article():
             print(article_html)
 
     def replace_url(self, soup):
-        for url in soup.find_all("a"):
+        for a in soup.find_all("a"):
             try:
                 a_href = a["href"]
                 if a_href.startswith("/"):
@@ -99,6 +99,19 @@ class Article():
                           or a_href.startswith("ftp")):
                     a_href = self.domain + "/" + a_href
                 a["href"] = a_href
+            except:
+                pass
+        for img in soup.find_all("img"):
+            try:
+                img_src = img["src"]
+                if img_src.startswith("/"):
+                    img_src = self.domain + img_src
+                elif img_src.startswith("#"):
+                    img_src = self.url + img_src
+                elif not (img_src.startswith("http")
+                          or img_src.startswith("ftp")):
+                    img_src = self.domain + "/" + img_src
+                img["src"] = img_src
             except:
                 pass
         return soup
