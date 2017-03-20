@@ -88,7 +88,7 @@ class Article():
             print(article_html)
 
     def replace_url(self, soup):
-        for url in soup.select_all("a"):
+        for url in soup.find_all("a"):
             try:
                 a_href = a["href"]
                 if a_href.startswith("/"):
