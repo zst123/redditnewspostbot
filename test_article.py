@@ -15,3 +15,5 @@ if __name__ == "__main__":
         for url in sys.argv[1:]:
             article_text = Article(url=url).get_article_text()
             print(article_text)
+    else:
+        print("%s [url] [url] [url]" % sys.argv[0])
