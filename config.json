@@ -96,6 +96,22 @@
                 "(Published|Updated)\\s*([^<])": "\\1: \\2"
             }
         },
+        "www.theindependent.sg": {
+            "site": "TheIndependent",
+            "content_selector": "article",
+            "modifications": {
+                "div.td-post-views": "decompose",
+                "div.td-main-sidebar": "decompose",
+                "div.td-post-sharing": "decompose",
+                "footer": "decompose",
+                "div.td_block_wrap": "decompose",
+                "div.comments-area": "decompose",
+                "div.clearfix": "decompose"
+            },
+            "replacements": {
+                "&amp;": "&"
+            }
+        },
         "www.tnp.sg": {
             "site": "The New Paper",
             "content_selector": "article",
