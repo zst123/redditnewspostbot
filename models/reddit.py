@@ -87,7 +87,7 @@ class Reddit():
                         submission_queue.put(submission)
                     else:
                         print("Skipping [%s](%s)" %
-                          (submission.id, submission.url))
+                              (submission.id, submission.url))
         except Exception as e:
-            print("EXCEPTION RAISED: %s" % exception.__class__.__name__)
-            time.sleep(60) # Wait 1 minute for exception
+            print("EXCEPTION RAISED: %s" % e.__class__.__name__)
+            time.sleep(60)  # Wait 1 minute for exception
