@@ -95,6 +95,8 @@ class Article():
                     a_href = self.domain + a_href
                 elif a_href.startswith("#"):
                     a_href = self.url + a_href
+                elif a_href.startswith("mailto:"):
+                    a_href = a_href.replace("mailto:", "mailto://")
                 elif not (a_href.startswith("http")
                           or a_href.startswith("ftp")):
                     a_href = self.domain + "/" + a_href
