@@ -77,23 +77,17 @@
         },
         "www.straitstimes.com": {
             "site": "StraitTimes",
-            "content_selector": "#block-system-main",
+            "content_selector": ".view-mode-article_default .col-md-8",
             "modifications": {
+                ".a2a_news_button_wrapper": "decompose",
                 ".a2abtn": "decompose",
-                ".author-email": "decompose",
+                ".button_news_post_text": "decompose",
                 ".hidden-print": "decompose",
-                ".label-inline": "unwrap",
-                ".sidebar-list": "decompose",
-                ".story-postdate": "unwrap",
-                ".ads": "decompose",
-                ".article-sidebar": "decompose",
-                ".field-name-st-native-ads-troubleshooting": "decompose",
-                "figcaption": "decompose",
-                "script": "decompose",
-                "style": "decompose"
+                ".news_mine_logo": "decompose",
+                "figcaption": "decompose"
             },
             "replacements": {
-                "(Published|Updated)\\s*([^<])": "\\1: \\2"
+                "srcset": "src"
             }
         },
         "www.theindependent.sg": {
