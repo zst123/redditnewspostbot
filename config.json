@@ -7,6 +7,22 @@
 
     // Supported sites configuration
     "supported_sites": {
+        "m.facebook.com": {
+            "site": "Facebook Mobile",
+            "content_selector": "div._5rgr.async_like",
+            "modifications": {
+                "div._5s61._2pis": "decompose",
+                "div._5s61._2pii._5i2i._52wc": "decompose",
+                "div._59e9._1-ut._34oh": "decompose",
+                "div._147s i": "unwrap",
+                "[aria-hidden='true']": "decompose",
+                "[data-sigil='audience-icon']": "decompose",
+                "footer": "decompose"
+            },
+            "replacements": {
+                "(<a.*?class=\"_39pi\".*?>)(</a>)": "\\1IMAGE\\2"
+            }
+        },
         "m.todayonline.com": {
             "site": "MobileTodayOnline",
             "content_selector": "div.article-body",
