@@ -3,7 +3,7 @@
     "user_agent": "RedditNewsPostBot v0.1.0 by /u/LFlare",
 
     // Comment configuration
-    "comment_template": "**Extracted Article:**\n{0}\n{1}\n\n===\n_^This ^bot ^was ^created ^by ^/u/LFlare, ^being ^too ^poor ^to ^afford ^ST ^subscription ^fees._\n\n_^[Feedback](https://www.reddit.com/message/compose/?to=LFlare&subject=[RedditNewsPostBot%20-%20{2}]%20)_ _^[GitHub](https://github.com/LFlare/redditnewspostbot)_",
+    "comment_template": "**Extracted Article:**\n{0}\n{1}\n\n===\n_[^[About ^Me]](https://redd.it/61xl9z) [^[Feedback]](https://www.reddit.com/message/compose/?to=LFlare&subject=[RedditNewsPostBot%20-%20{2}]%20) [^[Source ^Code]](https://github.com/LFlare/redditnewspostbot)_",
 
     // Supported sites configuration
     "supported_sites": {
