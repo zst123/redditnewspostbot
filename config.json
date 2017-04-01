@@ -106,6 +106,18 @@
                 "&amp;": "&"
             }
         },
+        "www.theonlinecitizen.com": {
+            "site": "TheOnlineCitizen",
+            "content_selector": "article",
+            "modifications": {
+                "div.addtoany_share_save_container": "decompose",
+                "a.comments": "decompose"
+            },
+            "replacements": {
+                "(<a.*?rel=\"category tag\">)": " | \\1Category: ",
+                ">\\s*?<p class=\"wp-caption-text\">(.*)</p>": "alt='IMAGE - \\1'>"
+            }
+        },
         "www.tnp.sg": {
             "site": "The New Paper",
             "content_selector": "article",
